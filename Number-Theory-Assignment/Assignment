@@ -9,7 +9,7 @@
 
 ## Google Colab Notebook
 
-**[https://colab.research.google.com/drive/1_wqulye7fZd_hq_WemTuSICWNlc1Yika?usp=sharing)**
+[**Open Assignment in Google Colab**](https://colab.research.google.com/drive/1_wqulye7fZd_hq_WemTuSICWNlc1Yika?usp=sharing)
 
 ---
 
@@ -61,6 +61,14 @@ y = 3
 ```
 
 ### Verification
+
+Using the equation:
+
+\[
+ax+by=GCD(a,b)
+\]
+
+Substituting the values:
 
 \[
 48(-1)+18(3)=-48+54=6
@@ -117,9 +125,23 @@ LCM = 36
 
 ### Calculation
 
+Using the formula:
+
 \[
-LCM(12,18)=\frac{12\times18}{6}=36
+LCM(a,b)=\frac{a\times b}{GCD(a,b)}
 \]
+
+Substituting the values:
+
+\[
+LCM(12,18)=\frac{12\times18}{6}
+\]
+
+\[
+LCM(12,18)=36
+\]
+
+Therefore, the LCM is 36.
 
 **Time Complexity:** \(O(\log(\min(a,b)))\).
 
@@ -145,7 +167,7 @@ An integer solution exists if and only if:
 GCD(a,b)\mid c
 \]
 
-We use Extended Euclid to find the initial solution and multiply its coefficients by \(c/GCD(a,b)\).
+We use the Extended Euclidean Algorithm to find an initial solution and multiply its coefficients by \(c/GCD(a,b)\).
 
 ### Python Implementation
 
@@ -201,8 +223,20 @@ Verification = 6
 
 ### Verification
 
+The given equation is:
+
 \[
-12(-1)+18(1)=-12+18=6
+12x+18y=6
+\]
+
+Substituting \(x=-1\) and \(y=1\):
+
+\[
+12(-1)+18(1)=-12+18
+\]
+
+\[
+=6
 \]
 
 Therefore, \(x=-1\) and \(y=1\) are valid integer solutions.
@@ -220,7 +254,7 @@ Therefore, \(x=-1\) and \(y=1\) are valid integer solutions.
 The modular inverse of `b` modulo `m` is a number `x` satisfying:
 
 \[
-(b\times x)\mod m=1
+(b\times x)\bmod m=1
 \]
 
 A modular inverse exists if:
@@ -232,7 +266,7 @@ GCD(b,m)=1
 Modular division is calculated using:
 
 \[
-\frac{a}{b}\mod m=(a\times b^{-1})\mod m
+\frac{a}{b}\bmod m=(a\times b^{-1})\bmod m
 \]
 
 ### Python Implementation
@@ -275,21 +309,33 @@ Result = 1
 
 ### Calculation
 
-First, find the modular inverse:
+First, find the modular inverse of 3 modulo 7:
 
 \[
-3^{-1}\mod7=5
-\]
-
-Then:
-
-\[
-10/3\mod7=(10\times5)\mod7
+3\times5=15
 \]
 
 \[
-=50\mod7=1
+15\bmod7=1
 \]
+
+Therefore:
+
+\[
+3^{-1}\bmod7=5
+\]
+
+Now, perform modular division:
+
+\[
+10/3\bmod7=(10\times5)\bmod7
+\]
+
+\[
+=50\bmod7=1
+\]
+
+Therefore, the result is 1.
 
 **Time Complexity:** \(O(\log m)\).
 
@@ -297,7 +343,7 @@ Then:
 
 ## Question 5: Fast Modular Exponentiation
 
-**Problem:** Implement `FastModularExponentiation(b, e, m)` to calculate \(b^e\mod m\) using approximately \(\log e\) modular multiplications. Python's built-in exponentiation functions are not allowed.
+**Problem:** Implement `FastModularExponentiation(b, e, m)` to calculate \(b^e\bmod m\) using approximately \(\log e\) modular multiplications. Python's built-in exponentiation functions are not allowed.
 
 ### Explanation
 
@@ -340,16 +386,22 @@ Result = 2
 
 ### Calculation
 
+We need to calculate:
+
 \[
-2^{10}\mod7
+2^{10}\bmod7
 \]
+
+First:
 
 \[
 2^{10}=1024
 \]
 
+Then:
+
 \[
-1024\mod7=2
+1024\bmod7=2
 \]
 
 Therefore, the result is 2.
@@ -371,21 +423,21 @@ The Chinese Remainder Theorem (CRT) is used to find a number that satisfies mult
 For example:
 
 \[
-x\mod3=2
+x\bmod3=2
 \]
 
 \[
-x\mod5=3
+x\bmod5=3
 \]
 
-The number 8 satisfies both equations:
+The number 8 satisfies both equations.
 
 \[
-8\mod3=2
+8\bmod3=2
 \]
 
 \[
-8\mod5=3
+8\bmod5=3
 \]
 
 Therefore:
@@ -450,15 +502,31 @@ CRT Solution = 8
 
 ### Verification
 
-\[
-8\mod3=2
-\]
+The obtained solution is \(x=8\).
+
+**First condition:**
+
+Dividing 8 by 3 gives a remainder of 2.
 
 \[
-8\mod5=3
+8\bmod3=2
+\]
+
+**Second condition:**
+
+Dividing 8 by 5 gives a remainder of 3.
+
+\[
+8\bmod5=3
 \]
 
 Both conditions are satisfied.
+
+Therefore, the final CRT solution is:
+
+\[
+\boxed{x=8}
+\]
 
 **Time Complexity:** The implementation performs \(n\) Extended Euclidean computations for \(n\) pairwise coprime moduli.
 
